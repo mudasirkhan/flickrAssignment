@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import { persistStore, persistCombineReducers } from 'redux-persist';
 import { AsyncStorage } from 'react-native';
 import data from "./dataReducer"
+import photos from "./photos";
 
 
 const config = {
@@ -13,6 +14,7 @@ const config = {
 
 const reducer = persistCombineReducers(config, {
     data: data,
+    photos: photos
 });
 
 const store = createStore(reducer, applyMiddleware(thunk));
