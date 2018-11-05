@@ -1,4 +1,1 @@
-export const FETCHING_DATA = 'FETCHING_DATA';
-export const FETCHING_DATA_SUCCESS = 'FETCHING_DATA_SUCCESS';
-export const FETCHING_DATA_FAILURE = 'FETCHING_DATA_FAILURE';
-export const SET_PHOTOS = "SET_PHOTOS";
+export const BASE_URL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=cdd997f4b04d47029a05da1772eca199& format=json&nojsoncallback=2&safe_search=1&text=";

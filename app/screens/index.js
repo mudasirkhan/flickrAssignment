@@ -1,10 +1,11 @@
 import React from 'react';
-import {View, Image, FlatList, Dimensions, RefreshControl, TouchableOpacity, ActivityIndicator, Platform, ViewPagerAndroid} from 'react-native';
+import {View, Image, FlatList, Dimensions, RefreshControl, TouchableOpacity, ActivityIndicator, Platform, ViewPagerAndroid, BackHandler, Keyboard} from 'react-native';
 import {connect}  from 'react-redux';
-import {fetchData, getPhotos} from '../actions';
+import {fetchData} from '../actions/data';
 import styles from "../styles/styles";
 import Header from "../components/Header";
 import * as _ from "lodash";
+import Post from '../components/Post';
 
 const {height, width} = Dimensions.get('window');
 
@@ -16,168 +17,142 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            sources: [],
-            page: 0,
-            photo: '',
+            page: 1,
             search: '',
             loading: false,
-            photos: [],
-            photoList: [],
             refreshing: false,
-            offset: 10,
             zoom: false,
-            columnCount: 3
-
+            columnCount: 3,
+            index: 0
         };
-        console.log(this.props);
         this.data= [];
+    };
+
+    componentDidMount() {
+        BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+        this.search();
     }
 
+    componentWillUnmount() {
+        BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+    }
+
+    handleBackPress = () => {
+       this.onPress();
+        return true;
+    };
+
     search = () => {
-        //this.setState({loading: true});
-        let keys = Object.keys(this.props.data.data);
-        console.log(this.state.search);
-        if (keys.includes(_.lowerCase(this.state.search))) {
-            if (this.props.data.data && this.props.data.data.length!==0 && (!this.props.data.data[0] || (this.props.data.data[0].id !== this.props.data.data[0].id))) {
-                this.setState({photoList: this.props.data.data[this.state.search]},()=>{
-                    console.log( keys, this.props)
-                })
-            }
-        } else {
-            this.props.fetchData(this.state.search,this.state.page)
-        }
-        this.data=this.getData(this.props.data.data);
-        this.props.getPhotos(this.data);
+        this.props.fetchData(this.state.search,this.state.page);
+        Keyboard.dismiss();
+    };
 
-
+    searchFresh= () => {
+        this.setState({page: 0}, ()=>{
+            this.search();
+            Keyboard.dismiss();
+        });
     };
 
     loadMore = () => {
-        console.log('Loading more images');
         this.props.fetchData(_.lowerCase(this.state.search),this.state.page +1);
         this.setState({page: this.state.page + 1});
-        this.data=this.getData(this.props.data.data);
-        this.props.getPhotos(this.data);
-    };
 
-    // componentWillReceiveProps (nextProps) {
-    //     console.log("cwrp", nextProps.data);
-    //     if (nextProps.data.data[this.state.search] && nextProps.data.data[this.state.search].length!==0 && (!this.props.data.data[this.state.search] ) && this.state.page < 1 ) {
-    //         let data = Object.assign([],this.state.photoList);
-    //         //data = data.push(...nextProps.data[this.state.search]);
-    //         data = [...nextProps.data.data[this.state.search]];
-    //         this.setState({photoList: data, loading: false},()=>{
-    //             console.log(this.state.photoList)
-    //         })
-    //     }
-    //     else if (this.state.search !== ""){
-    //         let data = Object.assign([],this.state.photoList);
-    //         //data = data.push(...nextProps.data[this.state.search]);
-    //         console.log("ainsxjas", data);
-    //         data = [...data,nextProps.data.data[this.state.search]];
-    //         this.setState({photoList: data, loading: false},()=>{
-    //             console.log(this.state.photoList)
-    //         })
-    //     }
-    //     nextProps.data.data[this.state.search] && console.log(nextProps.data.data[this.state.search]);
-    // };
+    };
 
     updateValue = (value) => {
         this.setState({search: value}, ()=>{this.search()})
     };
 
     renderItem = () => {
-       return _.map(this.state.photoList, (item,index) => {
-            return <View>
+        return _.map(this.props.photos, (item,index) => {
+            return <View key={item.id}>
                 <TouchableOpacity
-                onPress={()=>{
-                    this.setState({zoom: !this.state.zoom, columnCount : this.state.columnCount === 1 ? 3 : 1, index: index},()=>{
-                    });
-                }}>
-                <Image
-                    defaultSource={require('../../assets/splash.png') }
-                    source={{uri:`http://farm${item.farm}.static.flickr.com/${item.server}/${item.id}_${item.secret}.jpg`,}}
-                    style={this.state.zoom ? styles.listItemLarge :styles.listItemSmall}
-                    resizeMode={"cover"}/>
-            </TouchableOpacity>
+                    onPress={this.onPress.bind(this,index)}>
+                    <Image
+                        defaultSource={require('../../assets/splash.png') }
+                        source={{uri:`http://farm${item.farm}.static.flickr.com/${item.server}/${item.id}_${item.secret}.jpg`,}}
+                        style={this.state.zoom ? styles.listItemLarge : styles.listItemSmall}
+                        resizeMode={"cover"}/>
+                </TouchableOpacity>
             </View>
         })
     };
 
-    getData = (data) => {
-        if (this.state.search) {
-            let page = this.state.page;
-            let newData = [];
-            let key = '';
-            for (let i = 0; i <= page; i++) {
-                key = _.lowerCase(this.state.search) + "_" + i;
-                if (data[key] && data[key].length) {
-                    newData = [...newData, data[key]];
-                }
-            }
-            console.log("data coming is",newData, this.state.page, key);
-            return newData;
-        }
-    };
+    onPress = (index= 0) => {
+        this.setState({zoom: !this.state.zoom, columnCount : this.state.columnCount === 1 ? 3 : 1, index: index});
+    }
 
     render() {
         const {isFetching, data} = this.props.data;
-        return(<View style={{flex: 1}}>
-            <Header value={this.state.search} updateValue={this.updateValue.bind(this)} search={this.search}/>
-            {isFetching? <ActivityIndicator style={{top: 50}}/> : null}
-            {   (Platform.OS!=="ios" && this.state.zoom) ?
-                <ViewPagerAndroid
-                    style={styles.flex}
-                    initialPage={0}>
-                    {this.renderItem()}
-                </ViewPagerAndroid>
+        return(
+            <View style={styles.container}>
+                <Header
+                    value={this.state.search}
+                    updateValue={this.updateValue.bind(this)}
+                    search={this.search}
+                    onPress={this.onPress}
+                    activeOpacity={1}
+                />
+                {
+                    isFetching ?
+                    <ActivityIndicator
+                        style={styles.activityIndicator}
+                    />
                     :
-                <FlatList
-                    contentContainerStyle={{justifyContent: 'center',top:10, alignItems: 'center'}}
-                    style={{}}
-                    data={this.props.photos}
-                    numColumns={this.state.columnCount}
-                    key={this.state.zoom}
-                    onContentSizeChange={(contentWidth, contentHeight) => {
-                        if (this.state.zoom) {
-                            this.refs._scrollView.scrollToIndex({ animated: false, index:this.state.index});
-                        } else {
-                            //this.setState({ onRefresh: false });
+                    null
+                }
+                {
+                    (Platform.OS!=="ios" && this.state.zoom) ?
+                    <ViewPagerAndroid
+                        style={[styles.container,styles.listItemLarge]}
+                        initialPage={this.state.index}>
+                        {this.renderItem()}
+                    </ViewPagerAndroid>
+                    :
+                    <FlatList
+                        contentContainerStyle={styles.listStyles}
+                        style={{}}
+                        data={this.props.photos}
+                        numColumns={this.state.columnCount}
+                        key={this.state.zoom}
+                        onContentSizeChange={(contentWidth, contentHeight) => {
+                            if (this.state.zoom) {
+                                this.refs._scrollView.scrollToIndex({ animated: false, index:this.state.index});
+                            }}
                         }
-                    }}
-                    pagingEnabled={this.state.zoom}
-                    refreshControl={
-                        <RefreshControl
-                            refreshing={this.state.refreshing}
-                            colors={["#f7c937", "#8629cc"]}
-                            tintColor="#8629cc"
-                            onRefresh={this.loadMore.bind(this)}
-                        />
-                    }
-                    onEndReachedThreshold={.1}
-                    horizontal={this.state.zoom}
-                    onEndReached={this.loadMore}
-                    getItemLayout={(data, index) => (
-                        {length: width, offset: width * index, index}
-                    )}
-                    ref={'_scrollView'}
-                    initialNumToRender={0}
-                    keyExtractor={(item, index) => item.id }
-                    renderItem={({item, index}) =>
-                        <TouchableOpacity
-                            onPress={()=>{
-                                this.setState({zoom: !this.state.zoom, columnCount : this.state.columnCount === 1 ? 3 : 1, index: index},()=>{
-                                });
-                                // this.props.navigation.navigate('Image',{uri:`http://farm${item.farm}.static.flickr.com/${item.server}/${item.id}_${item.secret}.jpg`})
-                            }}>
-                            <Image
-                                defaultSource={require('../../assets/splash.png') }
-                                source={{uri:`http://farm${item.farm}.static.flickr.com/${item.server}/${item.id}_${item.secret}.jpg`,}}
-                                style={this.state.zoom ? styles.listItemLarge :styles.listItemSmall}
-                                resizeMode={"cover"}/>
-                        </TouchableOpacity> }
-                />}
-        </View>)
+                        pagingEnabled={this.state.zoom}
+                        refreshControl={
+                            <RefreshControl
+                                refreshing={this.state.refreshing}
+                                colors={["#f7c937", "#8629cc"]}
+                                tintColor="#8629cc"
+                                onRefresh={this.searchFresh}
+                            />
+                        }
+                        onEndReachedThreshold={.2}
+                        horizontal={this.state.zoom}
+                        onEndReached={this.loadMore.bind(this)}
+                        getItemLayout={(data, index) => (
+                            {length: width , offset: width  * index, index}
+                        )}
+                        ref={'_scrollView'}
+                        initialNumToRender={0}
+                        onKeyPress={(event) => {
+
+                        }}
+                        keyExtractor={(item, index) => item.id }
+                        onScrollToIndexFailed={()=>{}}
+                        renderItem={({item, index}) =>
+                           <Post
+                               item={item}
+                               zoom={this.state.zoom}
+                               onPress={this.onPress}
+                               index={index}
+                           />
+                        }
+                    />}
+            </View>)
     }
 }
 
@@ -190,8 +165,7 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
     return {
-        fetchData: (term,page) => dispatch(fetchData(term,page)),
-        getPhotos: (data) => dispatch(getPhotos(data))
+        fetchData: (term,page) => dispatch(fetchData(term,page))
     }
 }
 

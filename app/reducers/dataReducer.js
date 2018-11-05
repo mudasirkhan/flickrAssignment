@@ -1,4 +1,4 @@
-import { FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE } from '../constants'
+import { FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE } from '../actions/types'
 const initialState = {
     data: [],
     dataFetched: false,
@@ -15,11 +15,7 @@ export default dataReducer = (state = initialState, action) => {
                 isFetching: true
             }
         case FETCHING_DATA_SUCCESS:
-            return {
-                ...state,
-                isFetching: false,
-                data: Object.assign({}, action.data)
-            }
+            return Object.assign({}, action.data)
         case FETCHING_DATA_FAILURE:
             return {
                 ...state,
