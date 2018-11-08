@@ -62,6 +62,7 @@ export function fetchData(term, page) {
         } else {
             search(term, page)
                 .then((data) => {
+                    console.log(data);
                     const id = _.lowerCase(term) + "_" + page;
                     newData = Object.assign({}, getState().data);
                     newData[id] = data.data.photos.photo;

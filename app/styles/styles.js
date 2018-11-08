@@ -1,8 +1,10 @@
 import React from 'react';
 import {StyleSheet, Dimensions} from 'react-native';
-import Colors from './Colors'
+import Colors from './Colors';
 
 const {height, width} = Dimensions.get('window');
+
+let styles;
 
 export default styles = StyleSheet.create( {
     flex: {
@@ -70,5 +72,17 @@ export default styles = StyleSheet.create( {
         alignSelf: 'flex-end',
         marginBottom: 0,
         paddingHorizontal: 4
+    },
+    padding: {
+        padding: 8
+    },
+    text: {
+        maxWidth: 200
+    },
+    tapToClose: {
+        backgroundColor: "#5b5b5b",
+        borderRadius: 16,
+        padding: 16,
+        width: 120, position: "absolute", zIndex: 99, alignSelf: "flex-end", opacity: .75
     }
 })

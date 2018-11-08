@@ -1,0 +1,406 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link changes the class when hovered 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "flex-end",
+      "flexDirection": "row",
+      "height": 66,
+      "width": 750,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#fff",
+        "borderBottomColor": "#da1e66",
+        "borderBottomWidth": 4,
+        "flex": 1,
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "marginHorizontal": 0,
+        "padding": 8,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#da1e66",
+            "fontSize": 16,
+            "fontWeight": "bold",
+            "paddingHorizontal": 16,
+          }
+        }
+      >
+        Flickr
+      </Text>
+    </View>
+    <TextInput
+      allowFontScaling={true}
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      placeholder="Search Images here"
+      returnKeyType="go"
+      style={
+        Object {
+          "alignSelf": "flex-end",
+          "flex": 1,
+          "marginBottom": 0,
+          "paddingHorizontal": 4,
+        }
+      }
+      underlineColorAndroid="transparent"
+      value="hello"
+    />
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+          "paddingHorizontal": 16,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/close.png",
+          }
+        }
+        style={
+          Object {
+            "height": 12,
+            "width": 12,
+          }
+        }
+      />
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+          "paddingHorizontal": 16,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/search.png",
+          }
+        }
+        style={
+          Object {
+            "height": 16,
+            "width": 16,
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Link changes the class when hovered 2`] = `
+<View
+  style={
+    Object {
+      "alignItems": "flex-end",
+      "flexDirection": "row",
+      "height": 66,
+      "width": 750,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#fff",
+        "borderBottomColor": "#da1e66",
+        "borderBottomWidth": 4,
+        "flex": 1,
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "marginHorizontal": 0,
+        "padding": 8,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#da1e66",
+            "fontSize": 16,
+            "fontWeight": "bold",
+            "paddingHorizontal": 16,
+          }
+        }
+      >
+        Flickr
+      </Text>
+    </View>
+    <TextInput
+      allowFontScaling={true}
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      placeholder="Search Images here"
+      returnKeyType="go"
+      style={
+        Object {
+          "alignSelf": "flex-end",
+          "flex": 1,
+          "marginBottom": 0,
+          "paddingHorizontal": 4,
+        }
+      }
+      underlineColorAndroid="transparent"
+      value="hello"
+    />
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+          "paddingHorizontal": 16,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/close.png",
+          }
+        }
+        style={
+          Object {
+            "height": 12,
+            "width": 12,
+          }
+        }
+      />
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+          "paddingHorizontal": 16,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/search.png",
+          }
+        }
+        style={
+          Object {
+            "height": 16,
+            "width": 16,
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Link changes the class when hovered 3`] = `
+<View
+  style={
+    Object {
+      "alignItems": "flex-end",
+      "flexDirection": "row",
+      "height": 66,
+      "width": 750,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#fff",
+        "borderBottomColor": "#da1e66",
+        "borderBottomWidth": 4,
+        "flex": 1,
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "marginHorizontal": 0,
+        "padding": 8,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#da1e66",
+            "fontSize": 16,
+            "fontWeight": "bold",
+            "paddingHorizontal": 16,
+          }
+        }
+      >
+        Flickr
+      </Text>
+    </View>
+    <TextInput
+      allowFontScaling={true}
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      placeholder="Search Images here"
+      returnKeyType="go"
+      style={
+        Object {
+          "alignSelf": "flex-end",
+          "flex": 1,
+          "marginBottom": 0,
+          "paddingHorizontal": 4,
+        }
+      }
+      underlineColorAndroid="transparent"
+      value="hello"
+    />
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+          "paddingHorizontal": 16,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/close.png",
+          }
+        }
+        style={
+          Object {
+            "height": 12,
+            "width": 12,
+          }
+        }
+      />
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+          "paddingHorizontal": 16,
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/search.png",
+          }
+        }
+        style={
+          Object {
+            "height": 16,
+            "width": 16,
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;

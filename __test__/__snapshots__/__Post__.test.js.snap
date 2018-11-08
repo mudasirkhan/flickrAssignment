@@ -1,0 +1,265 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link changes the class when hovered 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+>
+  <View>
+    <View
+      style={
+        Object {
+          "alignSelf": "flex-end",
+          "backgroundColor": "#5b5b5b",
+          "borderRadius": 16,
+          "opacity": 0.75,
+          "padding": 16,
+          "position": "absolute",
+          "width": 120,
+          "zIndex": 99,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+          }
+        }
+      >
+        Tap to close
+      </Text>
+    </View>
+    <Image
+      defaultSource={
+        Object {
+          "testUri": "../../../assets/splash.png",
+        }
+      }
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "http://farm2.static.flickr.com/1979/44867966125_d9c9383ace.jpg",
+        }
+      }
+      style={
+        Object {
+          "height": 750,
+          "width": 750,
+        }
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "padding": 8,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "maxWidth": 200,
+          }
+        }
+      >
+        Title: 
+        Campeonato Estadual Laser 2018-1977.jpg
+      </Text>
+      <Text>
+        Farm: 
+        2
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Link changes the class when hovered 2`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+>
+  <View>
+    <View
+      style={
+        Object {
+          "alignSelf": "flex-end",
+          "backgroundColor": "#5b5b5b",
+          "borderRadius": 16,
+          "opacity": 0.75,
+          "padding": 16,
+          "position": "absolute",
+          "width": 120,
+          "zIndex": 99,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+          }
+        }
+      >
+        Tap to close
+      </Text>
+    </View>
+    <Image
+      defaultSource={
+        Object {
+          "testUri": "../../../assets/splash.png",
+        }
+      }
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "http://farm2.static.flickr.com/1979/44867966125_d9c9383ace.jpg",
+        }
+      }
+      style={
+        Object {
+          "height": 750,
+          "width": 750,
+        }
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "padding": 8,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "maxWidth": 200,
+          }
+        }
+      >
+        Title: 
+        Campeonato Estadual Laser 2018-1977.jpg
+      </Text>
+      <Text>
+        Farm: 
+        2
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Link changes the class when hovered 3`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+>
+  <View>
+    <View
+      style={
+        Object {
+          "alignSelf": "flex-end",
+          "backgroundColor": "#5b5b5b",
+          "borderRadius": 16,
+          "opacity": 0.75,
+          "padding": 16,
+          "position": "absolute",
+          "width": 120,
+          "zIndex": 99,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "white",
+          }
+        }
+      >
+        Tap to close
+      </Text>
+    </View>
+    <Image
+      defaultSource={
+        Object {
+          "testUri": "../../../assets/splash.png",
+        }
+      }
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "http://farm2.static.flickr.com/1979/44867966125_d9c9383ace.jpg",
+        }
+      }
+      style={
+        Object {
+          "height": 750,
+          "width": 750,
+        }
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "padding": 8,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "maxWidth": 200,
+          }
+        }
+      >
+        Title: 
+        Campeonato Estadual Laser 2018-1977.jpg
+      </Text>
+      <Text>
+        Farm: 
+        2
+      </Text>
+    </View>
+  </View>
+</View>
+`;
