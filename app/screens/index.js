@@ -67,22 +67,19 @@ class Home extends React.Component {
 
     renderItem = () => {
         return _.map(this.props.photos, (item,index) => {
-            return <View key={item.id}>
-                <TouchableOpacity
-                    onPress={this.onPress.bind(this,index)}>
-                    <Image
-                        defaultSource={require('../../assets/splash.png') }
-                        source={{uri:`http://farm${item.farm}.static.flickr.com/${item.server}/${item.id}_${item.secret}.jpg`,}}
-                        style={this.state.zoom ? styles.listItemLarge : styles.listItemSmall}
-                        resizeMode={"cover"}/>
-                </TouchableOpacity>
-            </View>
+            return  <Post
+                item={item}
+                zoom={this.state.zoom}
+                onPress={this.onPress}
+                index={index}
+                key={item.id}
+            />
         })
     };
 
     onPress = (index= 0) => {
-        this.setState({zoom: false, columnCount : 3, index: 0});
-    }
+        this.setState({zoom: !this.state.zoom, columnCount : this.state.columnCount === 1 ? 3 : 1, index: index});
+    };
 
     render() {
         const {isFetching, data} = this.props.data;

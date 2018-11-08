@@ -9,6 +9,7 @@ export default class Post extends PureComponent {
         const {item, zoom, index, onPress} = this.props;
         return  <TouchableOpacity
             activeOpacity={1}
+            key={item.id}
             onPress={()=>{
                 onPress(index)
                 // this.props.navigation.navigate('Image',{uri:`http://farm${item.farm}.static.flickr.com/${item.server}/${item.id}_${item.secret}.jpg`})

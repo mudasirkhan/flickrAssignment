@@ -13,7 +13,7 @@ export default class Intro extends React.Component {
         }
     }
     componentDidMount () {
-        setTimeout(()=>{this.props.navigation.replace('Dashboard')}, 3000);
+        setTimeout(()=>{this.props.navigation.replace('Dashboard')}, 1500);
     }
     render() {
         return(
