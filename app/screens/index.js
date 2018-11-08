@@ -55,9 +55,10 @@ class Home extends React.Component {
     };
 
     loadMore = () => {
-        this.props.fetchData(_.lowerCase(this.state.search),this.state.page +1);
-        this.setState({page: this.state.page + 1});
-
+        if (!this.props.isFetching) {
+            this.props.fetchData(_.lowerCase(this.state.search), this.state.page + 1);
+            this.setState({page: this.state.page + 1});
+        }
     };
 
     updateValue = (value) => {
