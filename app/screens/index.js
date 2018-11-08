@@ -81,7 +81,7 @@ class Home extends React.Component {
     };
 
     onPress = (index= 0) => {
-        this.setState({zoom: !this.state.zoom, columnCount : this.state.columnCount === 1 ? 3 : 1, index: index});
+        this.setState({zoom: false, columnCount : 3, index: 0});
     }
 
     render() {

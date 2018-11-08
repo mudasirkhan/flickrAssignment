@@ -25,7 +25,7 @@ export default styles = StyleSheet.create( {
         width: 12
     },
     headerContainer: {
-        height: 66,
+        height: 76,
         width: width,
         flexDirection: 'row',
         alignItems: 'flex-end'

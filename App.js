@@ -7,12 +7,14 @@ import Home from './app/screens';
 import ImageScreen from './app/screens/Image';
 
 import thunk from 'redux-thunk';
+import Intro from "./app/components/Intro";
 
 
 
 
 const Router = createStackNavigator({
-        Home: {screen: Home},
+        Home: {screen: Intro},
+        Dashboard: {screen: Home},
         Image: {screen: ImageScreen}
     }
     ,{
